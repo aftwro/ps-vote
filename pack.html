@@ -1,1 +1,273 @@
-<empty file>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Pack — PearSMP</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #13210e;
+  --bg2: #0b1408;
+  --panel: #1e3316;
+  --border-dark: #070d05;
+  --accent: #8fe04f;
+  --accent-dim: #3f6b22;
+  --brown: #8a5a2e;
+  --brown-dark: #4a3016;
+  --warn: #f0c14a;
+  --text: #d9ecc9;
+  --muted: #7c9a68;
+  --white: #f4fff0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { image-rendering: pixelated; }
+body {
+  font-family: 'Pixelify Sans', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 4px);
+  color: var(--text);
+  min-height: 100vh;
+}
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+/* Pixel panel mixin look */
+.pixel-panel {
+  background: var(--panel);
+  border: 4px solid var(--border-dark);
+  box-shadow:
+    inset 3px 3px 0 rgba(255,255,255,0.07),
+    inset -3px -3px 0 rgba(0,0,0,0.4),
+    0 5px 0 var(--border-dark);
+}
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.logo-img {
+  width: 128px;
+  height: auto;
+  image-rendering: pixelated;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 4px 0 rgba(0,0,0,0.4));
+}
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(1.1rem, 4.2vw, 1.7rem);
+  line-height: 1.5;
+  color: var(--accent);
+  text-shadow: 3px 3px 0 var(--accent-dim), 6px 6px 0 rgba(0,0,0,0.35);
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.subtitle em {
+  color: var(--warn);
+  font-style: normal;
+  font-weight: 700;
+}
+/* Video container */
+.video-wrap {
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+.video-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 4px solid var(--border-dark);
+  background: var(--bg2);
+}
+.pulse-block {
+  width: 10px; height: 10px;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--border-dark);
+  animation: pulse 1.4s steps(2) infinite;
+  flex-shrink: 0;
+}
+.video-label-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.video-label-text span { color: var(--accent); }
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  background: #000;
+}
+/* Steps */
+.section-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: var(--warn);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 18px;
+}
+.step-num {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg2);
+  border: 3px solid var(--border-dark);
+  box-shadow:
+    inset 2px 2px 0 rgba(0,0,0,0.5),
+    inset -2px -2px 0 rgba(255,255,255,0.06);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 1px;
+}
+.step-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.step-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.step-desc code {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  background: var(--bg2);
+  color: var(--accent);
+  border: 2px solid var(--border-dark);
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+/* Note */
+.note {
+  margin-top: 32px;
+  padding: 16px 18px;
+  background: rgba(240,193,74,0.08);
+  border: 4px solid var(--brown-dark);
+  box-shadow:
+    inset 3px 3px 0 rgba(255,255,255,0.05),
+    inset -3px -3px 0 rgba(0,0,0,0.35);
+  font-size: 14px;
+  color: var(--warn);
+  line-height: 1.7;
+}
+.note strong {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--warn);
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <!-- Replace with the uploaded transparent-background PearSMP logo PNG, same filename -->
+    <img class="logo-img" src="pearsmp-logo.png" alt="PearSMP">
+    <h1>ENABLE THE<br>RESOURCE PACK</h1>
+    <p class="subtitle">Watch the video below, it takes <em>under a minute</em>. The pack makes everything look the way it's meant to.</p>
+  </header>
+
+  <!-- Video player -->
+  <div class="video-wrap pixel-panel">
+    <div class="video-label">
+      <div class="pulse-block"></div>
+      <span class="video-label-text">PEARSMP · <span>PACK SETUP</span></span>
+    </div>
+    <video
+      class="video-frame"
+      src="pack_tutorial.mp4"
+      controls
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
+
+  <!-- Step-by-step reference -->
+  <div class="steps-section">
+    <div class="section-label">&gt; WHAT TO DO</div>
+    <div class="steps">
+
+      <div class="step pixel-panel">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <div class="step-title">JOIN THE SERVER</div>
+          <div class="step-desc">Connect to <code>play.pearsmp.fun</code> in Minecraft Java Edition.</div>
+        </div>
+      </div>
+
+      <div class="step pixel-panel">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <div class="step-title">ACCEPT THE PROMPT</div>
+          <div class="step-desc">A dialog will appear asking you to download the server resource pack. Click <code>Yes</code> to accept and download it.</div>
+        </div>
+      </div>
+
+      <div class="step pixel-panel">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <div class="step-title">ALWAYS DOWNLOAD</div>
+          <div class="step-desc">To skip the prompt next time, open <code>Options &gt; Server Resource Packs</code> and set it to <code>Enabled</code>. The video above shows exactly where this is.</div>
+        </div>
+      </div>
+
+      <div class="step pixel-panel">
+        <span class="step-num">04</span>
+        <div class="step-body">
+          <div class="step-title">REJOIN & ENJOY</div>
+          <div class="step-desc">Once the pack loads you'll see custom textures, UI elements, and items. If anything looks broken, try <code>F3 + T</code> to reload resource packs.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>HAVING TROUBLE?</strong>
+    Make sure you're not using any pack-blocking mods. If the pack keeps failing, ask a staff member in our Discord at discord.gg/pearsmp.
+  </div>
+
+</div>
+</body>
+</html>
